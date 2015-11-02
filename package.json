@@ -1,0 +1,20 @@
+{
+  "name": "react-playground",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Patryk Nowak",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^0.14.1"
+  },
+  "devDependencies": {
+    "babel-core": "^5.6.5",
+    "babel-loader": "^5.1.4",
+    "node-libs-browser": "^0.5.2",
+    "webpack": "^1.9.11"
+  }
+}

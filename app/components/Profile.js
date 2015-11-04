@@ -2,6 +2,7 @@ var React = require('react');
 var Router = require('react-router');
 
 var Profile = React.createClass({
+
 	getInitialState: function(){
 		return {
 			notes: [],
@@ -13,7 +14,7 @@ var Profile = React.createClass({
 		return (
 			<div className="row">
 				<div className="col-md-4">
-					User profile component
+					User profile component ---> {this.props.params.username}
 				</div>
 				<div className="col-md-4">
 					Repos component

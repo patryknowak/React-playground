@@ -3,15 +3,25 @@ var Router = require('react-router');
 var UserProfile = require('./Github/UserProfile');
 var Repos = require('./Github/Repos');
 var Notes = require('./Notes/Notes');
+var ReactFireMixin = require('reactfire');
+var Firebase = require('firebase');
 
 var Profile = React.createClass({
-
+	mixins: [Router.State, ReactFireMixin],
 	getInitialState: function(){
 		return {
 			notes: [],
 			bio: {'name': 'Angel'},
 			repos: []
 		}
+	},
+	componentDiDMount: function() {
+		this.ref = new Firebase('https://blinding-torch-3176.firebaseio.com');
+		var childRef = this.ref.child(this.props.params.username);
+		this.bindAsArray(childRef, 'notes');
+	},
+	componentWillUnmount: function(){
+		this.unbind('notes');
 	},
 	render: function(){
 		var username = this.props.params.username;

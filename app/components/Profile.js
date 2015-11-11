@@ -1,7 +1,7 @@
 var React = require('react');
 var Router = require('react-router');
-var UserProfile = require('./Github/UserProfile');
 var Repos = require('./Github/Repos');
+var UserProfile = require('./Github/UserProfile');
 var Notes = require('./Notes/Notes');
 var ReactFireMixin = require('reactfire');
 var Firebase = require('firebase');
@@ -12,10 +12,10 @@ var Profile = React.createClass({
 		return {
 			notes: [],
 			bio: {'name': 'Angel'},
-			repos: []
+			repos: [1,2,3]
 		}
 	},
-	componentDiDMount: function() {
+	componentDidMount: function() {
 		this.ref = new Firebase('https://blinding-torch-3176.firebaseio.com');
 		var childRef = this.ref.child(this.props.params.username);
 		this.bindAsArray(childRef, 'notes');
